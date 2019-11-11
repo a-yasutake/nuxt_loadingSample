@@ -1,5 +1,5 @@
 <template>
-  <div id="samplePage">
+  <div id="samplePage2">
     <div class="main">
       <h1>サンプルページ2</h1>
       <button @click="back">戻る</button>
@@ -13,14 +13,12 @@ import { Vue, Component } from "nuxt-property-decorator";
   components: {}
 })
 export default class Sample2 extends Vue {
-  public mounted(): void {
-    console.log("画面遷移後ローディング中");
-    this.$nuxt.$loading.finish();
-    console.log("画面遷移後ローディング終わり");
-  }
+ 
+
+  public mounted(): void {}
 
   public back(): void {
-    this.$router.push("Sample1");
+    this.$router.replace("Sample1");
   }
 }
 </script>

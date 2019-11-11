@@ -1,5 +1,5 @@
 <template>
-  <div id="samplePage">
+  <div id="samplePage1">
     <div class="main">
       <h1>サンプルページ1</h1>
       <button @click="next">次へ</button>
@@ -14,7 +14,11 @@ import axios from "axios";
   components: {}
 })
 export default class Sample1 extends Vue {
-  public mounted(): void {}
+  public mounted(): void {
+    // this.$nextTick(() => {
+    setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    // });
+  }
 
   async next() {
     // ローディング開始
@@ -32,8 +36,11 @@ export default class Sample1 extends Vue {
         console.log(response);
       });
 
+    // ローディング終了
+    this.$nuxt.$loading.finish();
+
     // 通信終了後に画面遷移
-    this.$router.push("Sample2");
+    this.$router.replace("Sample2");
   }
 }
 </script>
