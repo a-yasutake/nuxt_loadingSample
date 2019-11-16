@@ -8,7 +8,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 @Component({})
 export default class Loading extends Vue {
-  protected loading: boolean = false;
+  protected loading: boolean = true;
 
   public start() {
     this.loading = true;
