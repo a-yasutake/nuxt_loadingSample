@@ -10,11 +10,9 @@
 import { Vue, Component } from "nuxt-property-decorator";
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Sample2 extends Vue {
- 
-
   public mounted(): void {}
 
   public back(): void {
@@ -22,8 +20,4 @@ export default class Sample2 extends Vue {
   }
 }
 </script>
-<style>
-.main {
-  margin-left: 10%;
-}
-</style>
+<style></style>

@@ -8,33 +8,21 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator";
-import axios from "axios";
 
 @Component({
-  components: {}
+  components: {},
 })
 export default class Sample1 extends Vue {
   public mounted(): void {
-    // this.$nextTick(() => {
-    setTimeout(() => this.$nuxt.$loading.finish(), 500);
-    // });
+    setTimeout(() => this.$nuxt.$loading.finish(), 300);
   }
 
   async next() {
     // ローディング開始
     this.$nuxt.$loading.start();
 
-    // API通信
-    const zipcode = "7128032";
-    await axios
-      .get(`https://api.zipaddress.net/?zipcode=${zipcode}`)
-      .then(function(response) {
-        console.log("レスポンス書く");
-        console.log(response);
-      })
-      .catch(function(response) {
-        console.log(response);
-      });
+    // 何かしらの通信（今回は3秒待たせてみる）
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     // ローディング終了
     this.$nuxt.$loading.finish();
@@ -44,8 +32,4 @@ export default class Sample1 extends Vue {
   }
 }
 </script>
-<style>
-.main {
-  margin-left: 10%;
-}
-</style>
+<style></style>
